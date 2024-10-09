@@ -1,0 +1,54 @@
+<?php
+$showSuccessMessage = isset($_SESSION['success_message']);
+$showErrorMessage = isset($_SESSION['error_message']);
+?>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/assets/css/styles.css">
+    <title>OLXPriceTracker</title>
+</head>
+<body>
+<div class="container form-container">
+    <div class="text-center">
+        <h1 class="logo">OLXPriceTracker</h1>
+        <p class="description">Stay updated with the latest price changes of your favorite OLX ads. Subscribe now to receive email notifications whenever there is a change in price!</p>
+    </div>
+
+    <?php if ($showSuccessMessage): ?>
+    <div class="alert alert-success" role="alert">
+        <?= htmlspecialchars($_SESSION['success_message']) ?>
+    </div>
+    <?php unset($_SESSION['success_message']); ?>
+    <?php endif; ?>
+
+    <?php if ($showErrorMessage): ?>
+    <div class="alert alert-danger" role="alert">
+        <?= htmlspecialchars($_SESSION['error_message']) ?>
+    </div>
+    <?php unset($_SESSION['error_message']); ?>
+    <?php endif; ?>
+
+
+    <form action="/subscribe" method="POST" class="form-custom">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+            <label for="olxUrl">OLX Ad URL</label>
+            <input type="url" class="form-control" id="olxUrl" name="olx_url" placeholder="Enter OLX ad URL" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.form-custom {
+    width: 100%;
+    max-width: 600px;
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 2rem;
+}
+
+.description {
+    font-size: 1.25rem;
+    color: #6c757d;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}

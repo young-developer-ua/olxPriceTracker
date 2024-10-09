@@ -1,0 +1,15 @@
+<phpunit bootstrap="vendor/autoload.php" colors="true">
+    <testsuites>
+        <testsuite name="Application Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <php>
+        <env name="APP_ENV" value="test"/>
+        <env name="MYSQL_DATABASE" value="${MYSQL_TEST_DATABASE}"/>
+        <env name="MYSQL_USER" value="${MYSQL_TEST_USER}"/>
+        <env name="MYSQL_PASSWORD" value="${MYSQL_TEST_PASSWORD}"/>
+        <env name="MYSQL_ROOT_PASSWORD" value="${MYSQL_TEST_ROOT_PASSWORD}"/>
+    </php>
+</phpunit>
